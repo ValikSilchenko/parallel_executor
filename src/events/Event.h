@@ -1,0 +1,13 @@
+#pragma once
+
+#include <string>
+
+class Event {
+public:
+    Event() = default;
+
+    virtual ~Event() = default;;
+
+    virtual std::string toString() = 0;
+};
+
