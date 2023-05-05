@@ -4,7 +4,9 @@
 
 class DataEvent : public DeviceEvent {
 public:
-    std::string toString() override {
-        return DeviceEvent::toString();
+    explicit DataEvent(const std::shared_ptr<Device> &device) : DeviceEvent(device) {};
+
+    std::string toString() const override {
+        return device_->getDataAsString();
     };
 };

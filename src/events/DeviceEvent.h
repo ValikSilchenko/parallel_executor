@@ -10,6 +10,6 @@ public:
     explicit DeviceEvent(const std::shared_ptr<Device> &device) : device_(device) {};
 
     virtual ~DeviceEvent() = default;;
-private:
+protected:
     std::shared_ptr<Device> device_;
 };
