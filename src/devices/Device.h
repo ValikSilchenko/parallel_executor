@@ -4,6 +4,7 @@
 
 class Device {
 public:
+    Device() = default;
     virtual ~Device() = default;
 
     virtual std::string getName() = 0;

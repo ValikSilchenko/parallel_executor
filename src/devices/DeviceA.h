@@ -5,10 +5,11 @@
 class DeviceA : public Device {
 public:
     std::string getName() override {
-        return std::__cxx11::string();
+        return "DeviceA";
     }
 
     std::string getDataAsString() override {
-        return std::__cxx11::string();
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        return "string";
     }
 };
