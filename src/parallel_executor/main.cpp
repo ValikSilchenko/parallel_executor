@@ -73,8 +73,9 @@ void run(int deviceACyclesCount = -1, int deviceBCyclesCount = -1) {
 
 int main(int argc, char** argv) {
     if (argc != 3) {
-        std::cerr << "Program must have 0 or 2 arguments: <DeviceA read cycles count>, <DeviceB read cycles count>\n";
+        std::cerr << "Program must have 2 arguments: <DeviceA read cycles count>, <DeviceB read cycles count>\n";
         std::cerr << "For set device in normal mode pass -1 as read cycles count\n";
+        return -1;
     }
 
     int countA = std::stoi(argv[1]);

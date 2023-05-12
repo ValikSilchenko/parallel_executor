@@ -5,7 +5,7 @@
 #include <condition_variable>
 #include <thread>
 
-#include "Events/Event.h"
+#include "events/Event.h"
 
 class EventQueue
 {
