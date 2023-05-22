@@ -10,7 +10,7 @@
 
 
 
-void read(const std::shared_ptr<Device>& device, const int& callsCount, EventQueue& queue, int secondsToRead) {
+void read(const std::shared_ptr<Device>& device, int callsCount, EventQueue& queue, int secondsToRead) {
     queue.push(std::make_shared<StartedEvent>(StartedEvent(device)));
 
     int i = 0;

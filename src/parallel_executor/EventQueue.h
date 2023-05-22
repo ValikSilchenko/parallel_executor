@@ -10,9 +10,6 @@
 class EventQueue
 {
 public:
-    EventQueue() = default;
-    ~EventQueue() = default;
-
     // Положить сообщение в очередь
     void push(const std::shared_ptr<const Event>& event);
 
