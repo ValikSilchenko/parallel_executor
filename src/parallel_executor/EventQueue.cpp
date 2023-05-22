@@ -18,6 +18,5 @@ std::shared_ptr<const Event> EventQueue::pop(const std::chrono::seconds &duratio
         lock.unlock();
         return element;
     }
-    lock.unlock();
     return nullptr;
 }
