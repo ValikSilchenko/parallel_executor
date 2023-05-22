@@ -8,11 +8,11 @@ void EventQueue::push(const std::shared_ptr<const Event> &event) {
 
 std::shared_ptr<const Event> EventQueue::pop(const std::chrono::seconds &duration) {
     std::unique_lock<std::mutex> lock(mtx);
-    cv.wait_until(lock, std::chrono::system_clock::now() + duration, [=]() {
+    bool condition = cv.wait_for(lock, duration, [=] {
         return !queue.empty();
     });
 
-    if (!queue.empty()) {
+    if (condition) {
         auto element = queue.front();
         queue.pop();
         lock.unlock();

@@ -25,28 +25,24 @@ void read(const std::shared_ptr<Device>& device, const int& callsCount, EventQue
 
 
 void process(EventQueue& queue) {
-    bool deviceADone = false;
-    bool deviceBDone = false;
+    int devicesDoneCount = 0;
 
     std::shared_ptr<const Event> event;
     int devicesError = 0;
-    while (!deviceADone || !deviceBDone) {
+    while (devicesDoneCount < 2) {
         event = queue.pop(std::chrono::seconds(5));
 
         if (event == nullptr) {
             std::cerr << "Error while device reading\n";
             devicesError++;
-            if (devicesError + (deviceADone || deviceBDone) == 2)
+            if (devicesError + devicesDoneCount == 2)
                 return;
         } else {
             devicesError--;
         }
 
-        if (event->toString() == "DeviceA work done") {
-            deviceADone = true;
-        }
-        if (event->toString() == "DeviceB work done") {
-            deviceBDone = true;
+        if (dynamic_cast<const WorkDoneEvent*>(event.get()) != nullptr) {
+            devicesDoneCount++;
         }
         std::cout << event->toString() << "\n";
     }

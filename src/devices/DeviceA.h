@@ -4,11 +4,11 @@
 
 class DeviceA : public Device {
 public:
-    std::string getName() override {
+    std::string getName() const override {
         return "DeviceA";
     }
 
-    std::string getDataAsString() override {
+    std::string getDataAsString() const override {
         return "string";
     }
 };

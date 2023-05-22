@@ -7,7 +7,7 @@ public:
     Device() = default;
     virtual ~Device() = default;
 
-    virtual std::string getName() = 0;
+    virtual std::string getName() const = 0;
 
-    virtual std::string getDataAsString() = 0;
+    virtual std::string getDataAsString() const = 0;
 };
