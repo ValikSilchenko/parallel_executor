@@ -15,7 +15,6 @@ std::shared_ptr<const Event> EventQueue::pop(const std::chrono::seconds &duratio
     if (condition) {
         auto element = queue.front();
         queue.pop();
-        lock.unlock();
         return element;
     }
     return nullptr;
