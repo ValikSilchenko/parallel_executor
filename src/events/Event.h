@@ -4,7 +4,7 @@
 
 class Event {
 public:
-    virtual ~Event() = default;;
+    virtual ~Event() = default;
 
     virtual std::string toString() const = 0;
 };

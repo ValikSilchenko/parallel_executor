@@ -8,7 +8,7 @@ void EventQueue::push(const std::shared_ptr<const Event> &event) {
 
 std::shared_ptr<const Event> EventQueue::pop(const std::chrono::seconds &duration) {
     std::unique_lock<std::mutex> lock(mtx);
-    bool condition = cv.wait_for(lock, duration, [=] {
+    bool condition = cv.wait_for(lock, duration, [this] {
         return !queue.empty();
     });
 
